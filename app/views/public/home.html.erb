@@ -1,2 +1,7 @@
-<h1>Public#home</h1>
-<p>Find me in app/views/public/home.html.erb</p>
+<section class="splash text-center">
+  <h1 class="logo">CostCommander</h1>
+  <div class="links">
+    <%= link_to 'LOG IN', new_user_session_path, class: 'login' %>
+    <%= link_to 'SIGN UP', new_user_registration_path, class: 'signup' %>
+  </div>
+</section>

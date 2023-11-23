@@ -1,0 +1,49 @@
+<%= render 'layouts/nav' %>
+<%= form_with model: @transaction, url:  group_transactions_path do |form| %>
+  <% if @transaction.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(@transaction.errors.count, "error") %> prohibited this transaction from being saved:</h2>
+
+      <ul>
+        <% @transaction.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="seprator"></div>
+  <div class="text-center mt-3 form">
+    <div class="form-floating">
+      <%= form.text_field :name, autofocus: true, class: 'form-control', placeholder: "Transaction name" %>
+      <label for="floatingInput">Transaction name</label>
+    </div>
+    <div class="form-floating">
+      <%= form.number_field :amount, class: 'form-control', placeholder: "Amount" %>
+      <label for="floatingInput">Amount</label>
+    </div>
+    <%= form.hidden_field :groups, id: 'groups' %>
+    <select class="form-control mt-3" style="text-align-last:center;" id="select">
+      <option value="" disabled>--Select Group--</option>
+      <% @groups.each do |group| %>
+        <option value="<%= group.name %>"><%= group.name %></group>
+      <% end %>
+    </select>
+    <div>
+      <%= form.submit 'Create Transaction', class: 'btn btn-primary submit' %>
+    </div>
+  </div>
+<% end %>
+
+<script>
+  if(typeof groups === 'undefined' ) { var groups =  document.getElementById('groups')}
+  if(typeof selects == 'undefined')  { var selects = [] }
+  document.querySelector('select').addEventListener('change', () => {
+    selects.push(document.querySelector('select').value)
+    groups.value = selects
+    console.log(groups.value)
+  })
+  
+
+ 
+  
+</script>

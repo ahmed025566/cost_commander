@@ -69,5 +69,7 @@ group :test do
   gem 'capybara'
   gem 'selenium-webdriver'
 end
-gem 'rubocop', '>= 1.0', '< 2.0'
 gem 'devise'
+gem 'jquery-rails'
+gem 'jquery-ui-rails'
+gem 'rubocop', '>= 1.0', '< 2.0'
