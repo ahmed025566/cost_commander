@@ -21,6 +21,7 @@
       <%= form.number_field :amount, class: 'form-control', placeholder: "Amount" %>
       <label for="floatingInput">Amount</label>
     </div>
+
     <%= form.hidden_field :groups, id: 'groups', value: '' %>
     <select class="form-control mt-3" style="text-align-last:center;" id="select">
       <option value="" disabled>--Select Group--</option>
@@ -35,12 +36,20 @@
 <% end %>
 
 <script>
-  if(typeof groups === 'undefined' ) { var groups =  document.getElementById('groups')}
-  if(typeof selects == 'undefined')  { var selects = [] }
+  if(typeof selects == 'undefined') 
+    { var selects = [] } 
+  else {
+    selects = []
+    console.log(selects)
+  }
+
   document.querySelector('select').addEventListener('change', () => {
-    selects.push(document.querySelector('select').value)
-    groups.value = selects
-    console.log(groups.value)
+    if(!selects.includes(document.querySelector('select').value)) {
+      selects.push(document.querySelector('select').value)
+      document.getElementById('groups').value = selects
+    }
+    console.log(document.getElementById('groups').value)
   })
   
 </script>
+<% console %>

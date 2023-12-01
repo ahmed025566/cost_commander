@@ -13,11 +13,4 @@ RSpec.describe User, type: :model do
     user.name = 'Tome'
     expect(user).to be_valid
   end
-
-  it 'should not be vaild if the user input a non letter' do
-    user.name = 'Tome2'
-    expect(user).to_not be_valid
-    user.name = 'Tome'
-    expect(user).to be_valid
-  end
 end

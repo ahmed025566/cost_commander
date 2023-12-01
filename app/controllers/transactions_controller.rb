@@ -8,6 +8,9 @@ class TransactionsController < ApplicationController
   def create
     @transaction = Entity.new(transaction_params)
     @transaction.author = current_user
+    unless @transaction.groups.include?(Group.find(session[:group_id]).name)
+      @transaction.groups += Group.find(session[:group_id]).name
+    end
     if @transaction.save!
       redirect_to group_path(session[:group_id])
     else
