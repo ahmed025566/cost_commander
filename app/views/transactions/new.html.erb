@@ -1,7 +1,7 @@
 <%= render 'layouts/nav' %>
 <%= form_with model: @transaction, url:  group_transactions_path do |form| %>
   <% if @transaction.errors.any? %>
-    <div style="color: red">
+    <div style="color: red" class="errors">
       <h2><%= pluralize(@transaction.errors.count, "error") %> prohibited this transaction from being saved:</h2>
 
       <ul>
@@ -21,10 +21,10 @@
       <%= form.number_field :amount, class: 'form-control', placeholder: "Amount" %>
       <label for="floatingInput">Amount</label>
     </div>
-    <%= form.hidden_field :groups, id: 'groups' %>
+    <%= form.hidden_field :groups, id: 'groups', value: '' %>
     <select class="form-control mt-3" style="text-align-last:center;" id="select">
       <option value="" disabled>--Select Group--</option>
-      <% @groups.each do |group| %>
+      <% Group.all.each do |group| %>
         <option value="<%= group.name %>"><%= group.name %></group>
       <% end %>
     </select>
@@ -42,8 +42,5 @@
     groups.value = selects
     console.log(groups.value)
   })
-  
-
- 
   
 </script>
