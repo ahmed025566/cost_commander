@@ -71,7 +71,7 @@
 
 ## 🚀 Live Demo <a name="live-demo"></a>
 
-- [Live Demo Link](https://rails-i12r.onrender.com/)
+- [Live Demo Link](https://rails-qtm1.onrender.com/)
 - [ video tutorial ](https://drive.google.com/file/d/1sLPj2u79EM7wvpPxlYuQqlg7NYwYgWH9/view?usp=sharing)
 
 
