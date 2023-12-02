@@ -21,7 +21,7 @@ RSpec.describe 'Grups', type: :system do
     end
 
     it 'should have the date of creation to the transaction' do
-      expect(page).to have_content('1 Dec 2023')
+      expect(page).to have_content('<%= group.created_at.day %> Dec 2023')
     end
   end
 end

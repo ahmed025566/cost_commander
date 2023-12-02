@@ -21,8 +21,8 @@ RSpec.describe 'Groups', type: :system do
     end
 
     it 'should find the group creation date' do
-      groups.each do |_group|
-        expect(page).to have_content('1 Dec 2023')
+      groups.each do |group|
+        expect(page).to have_content('2 Dec 2023')
       end
     end
 

@@ -22,8 +22,9 @@ default: &default
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   host : localhost
   port: 5432
-  user: ahmed2
-  password: test
+  user: postgres
+  password: postgres
+
 development:
   <<: *default
   database: cost_commander_development
@@ -32,7 +33,7 @@ development:
   # To create additional roles in postgres see `$ createuser --help`.
   # When left blank, postgres will use the default role. This is
   # the same name as the operating system user running Rails.
-  #username: cost_commander
+  #username: Blog_App
 
   # The password associated with the postgres role (username).
   #password:
@@ -85,5 +86,5 @@ test:
 production:
   <<: *default
   database: cost_commander_production
-  username: cost_commander
-  password: <%= ENV["COST_COMMANDER_DATABASE_PASSWORD"] %>
+  username: Blog_App
+  password: <%= ENV["BLOG_APP_DATABASE_PASSWORD"] %>
