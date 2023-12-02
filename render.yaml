@@ -1,18 +1,24 @@
 databases:
-  - name: cost_commander
-    databaseName: cost_commander
-    user: ahmed025566
+  - name: postgres
+    plan: free
+    ipAllowList: []
 
 services:
   - type: web
-    name: mysite
-    runtime: ruby
+    name: rails
+    plan: free
+    env: ruby
     buildCommand: "./bin/render-build.sh"
     startCommand: "bundle exec puma -C config/puma.rb"
     envVars:
-      - key: DATABASE_URL
-        fromDatabase:
-          name: mysite
-          property: connectionString
       - key: RAILS_MASTER_KEY
         sync: false
+      - key: DATABASE_URL
+        fromDatabase:
+          name: postgres
+          property: connectionString
+  - type: redis
+    name: redis
+    ipAllowList: []
+    plan: free
+    maxmemoryPolicy: noeviction
