@@ -2,12 +2,12 @@ class GroupsController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @categories = Group.all
+    @categories = current_user.groups
     @months = months
   end
 
   def show
-    arr = Entity.all.order(created_at: :desc)
+    arr = Entity.where(author_id: current_user.id).order(created_at: :desc)
     @transactions = []
     group = Group.find(params[:id]).name
     arr.each do |entity|

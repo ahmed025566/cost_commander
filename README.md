@@ -32,7 +32,7 @@
 
 # 📖 Cost Commander <a name="about-project"></a>
 
-**Cost Commander** is a full stack app created with ruby on rails and postgresql
+**Cost Commander** is a full stack app created with ruby on rails and postgresql and it's purpose to help the user to track his expenses by recording transactions in a categories.
 
 ## 🛠 Built With <a name="built-with"></a>
 
@@ -143,8 +143,6 @@ I recomend Render since is easy to use
 
 
 ## 👥 Authors <a name="authors"></a>
-
-> Mention all of the collaborators of this project.
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
