@@ -1,6 +1,6 @@
 databases:
-  - name: cost-commander
-    databaseName: cost-commander
+  - name: cost_commander
+    databaseName: cost_commander
     user: ahmed025566
 
 services:
