@@ -1,0 +1,27 @@
+<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+  <div class="loginDiv">
+    <%= link_to :root, class: 'back' do %>
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-left"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+    <% end %>
+    <p style="font-size: 20px">LOGIN</p>
+    <%= f.submit 'Log in', class: 'log-in' %>
+  </div>  
+  <div class="seprator"></div>
+
+  <div class="text-center mt-3 form">
+    <div class="form-floating">
+      <%= f.email_field :email, autofocus: true, autocomplete: "email", id: "InputEmail", class: 'form-control', placeholder: "name@example.com" %>
+      <label for="floatingInput">Email address</label>
+    </div>
+    <div class="form-floating">
+      <%= f.password_field :password, autocomplete: "current-password", id: "floatingPassword", class: "form-control", placeholder: "Password" %>
+      <label for="floatingPassword">Password</label>
+    </div>
+    
+    <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
+      <%= link_to "Forgot password?", new_password_path(resource_name), class: 'link' %>
+    <% end %>
+  </div>
+<% end %>
+
+<div style= "height: 63vh; background-color:#f5f6f8;"></div>

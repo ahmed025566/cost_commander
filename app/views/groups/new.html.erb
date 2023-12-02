@@ -1,0 +1,53 @@
+<%= render 'layouts/nav' %>
+<%= form_with(model: @group) do |form| %>
+    <% if @group.errors.any? %>
+      <div style="color: red">
+        <h2><%= pluralize(@group.errors.count, "error") %> prohibited this categoty from being saved:</h2>
+  
+        <ul>
+          <% @group.errors.each do |error| %>
+            <li><%= error.full_message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+    <div class="seprator"></div>
+    <div class="text-center mt-3 form">
+
+    <div class="form-floating">
+      <%= form.text_field :name, autofocus: true, class: 'form-control', placeholder: "Category name" %>
+      <label for="floatingInput">Category name</label>
+    </div>
+  
+    <div class="icons">
+      <%= image_tag('child care.jpeg', class: 'image') %>
+      <%= image_tag('food.jpeg', class: 'image') %>
+      <%= image_tag('gas.jpeg', class: 'image') %>
+      <%= image_tag('health care.jpeg', class: 'image') %>
+      <%= image_tag('housing.jpeg', class: 'image') %>
+      <%= image_tag('internet.jpeg', class: 'image') %>
+      <%= image_tag('transportaionb.jpeg', class: 'image') %>
+      <%= image_tag('travel.jpeg', class: 'image') %>
+      <%= image_tag('insurance.jpeg', class: 'image') %>
+    </div>
+  
+    <%= form.hidden_field :icon, id: 'selected_image' %>
+    <div>
+      <%= form.submit 'Create Category', class: 'btn btn-primary submit' %>
+    </div>
+    </div>
+  <% end %>
+<script>
+  document.querySelector('.icons').addEventListener('click', (e) => {
+    selectedImage = e.target.src;
+    collection = Object.values(document.querySelector('.icons').children)
+    collection.forEach( img => {
+      if (img != e.target) {
+        img.classList.remove('selected')
+      } else {
+        img.classList.add('selected')
+      }
+    })
+    document.getElementById('selected_image').value = selectedImage;
+  });
+</script>
